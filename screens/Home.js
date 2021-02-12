@@ -19,7 +19,7 @@ const LineDivider = () => {
     )
 }
 
-const Home = () => {
+const Home = ({navigation}) => {
 
     const profileData = {
         name: "Username",
@@ -242,7 +242,9 @@ const renderMyBookSection = (myBooks) => {
                marginLeft: index == 0 ? SIZES.padding : 0,
                marginRight: SIZES.radius
            }}
-           onPress={() => console.log('My Book')}
+           onPress={() => navigation.navigate("BookDetail", {
+               book: item
+           })}
            >
                {/* Book cover  */}
                <Image 
@@ -352,7 +354,9 @@ const renderCategoryData = () => {
             <View style={{marginVertical: SIZES.base}}>
                 <TouchableOpacity
                 style={{flex:1, flexDirection:'row'}}
-                onPress={() => console.log('Category Book')}
+                onPress={() => navigation.navigate("BookDetail", {
+                    book: item
+                })}
                 >
                     <Image 
                     source={item.bookCover}
